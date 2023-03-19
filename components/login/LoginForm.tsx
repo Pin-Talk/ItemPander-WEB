@@ -16,7 +16,7 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className='w-96 h-96 flex flex-col items-center justify-center p-10'
+      className='w-96 h-80 flex flex-col items-center justify-center p-10'
     >
       <LoginInputContainer
         register={register('id', {
