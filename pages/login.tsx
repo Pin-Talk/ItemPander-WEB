@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Login: NextPage = () => {
   const { desk, currentSize } = useWindowSize();
   return (
-    <section className='flex justify-center items-center'>
+    <section className='flex justify-center items-center bg-gray-50'>
       {currentSize >= desk && (
         <div className='xl:flex-1 w-full min-h-screen relative'>
           <Image
