@@ -1,5 +1,6 @@
+import LoginForm from '@/components/auth/login/LoginForm';
 import useWindowSize from '@/components/hooks/useWindowSize';
-import LoginForm from '@/components/login/LoginForm';
+
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
