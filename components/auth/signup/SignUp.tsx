@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import AddressInput from './AddressInput';
 import EmailInput from './EmailInput';
 import Gender from './Gender';
 import NameInput from './NameInput';
@@ -6,7 +7,7 @@ import NumberInput from './NumberInput';
 
 const SignUp = () => {
   return (
-    <section className='flex flex-col items-center justify-center min-h-screen px-4 bg-gray-50'>
+    <section className='flex flex-col items-center justify-center min-h-screen px-4 bg-gray-100'>
       <div className='lg:flex-1 w-full'>
         <p className='text-3xl font-bold text-left w-full mb-10 text-[#81A9FE]'>
           Item Pander 회원가입
@@ -51,9 +52,12 @@ const SignUp = () => {
 
           <EmailInput htmlFor='email' label='이메일' />
 
-          <div>
-            <label htmlFor='address'>사는곳</label>
-            <input type='text' placeholder='통합 주소' />
+          <AddressInput label='사는곳' />
+
+          <div className='flex justify-center items-center'>
+            <button className='p-3 px-10 rounded-lg text-white bg-blue-300 hover:bg-blue-400 font-bold transition-all'>
+              회원가입
+            </button>
           </div>
         </form>
       </div>
