@@ -5,7 +5,7 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Login: NextPage = () => {
+const LoginPage: NextPage = () => {
   const { desk, currentSize } = useWindowSize();
   return (
     <section className='flex justify-center items-center bg-gray-50'>
@@ -41,4 +41,4 @@ const Login: NextPage = () => {
     </section>
   );
 };
-export default Login;
+export default LoginPage;
