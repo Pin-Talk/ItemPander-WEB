@@ -1,3 +1,5 @@
+'use client';
+
 import LoginForm from '@/components/auth/login/LoginForm';
 import useWindowSize from '@/components/hooks/useWindowSize';
 
