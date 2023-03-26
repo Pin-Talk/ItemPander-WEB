@@ -1,9 +1,4 @@
-import Image from 'next/image';
-import AddressInput from './AddressInput';
-import EmailInput from './EmailInput';
-import Gender from './Gender';
-import NameInput from './NameInput';
-import NumberInput from './NumberInput';
+import SignUpForm from './SignUpForm';
 
 const SignUp = () => {
   return (

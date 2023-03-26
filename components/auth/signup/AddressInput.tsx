@@ -1,3 +1,5 @@
+'use client';
+
 import useAddress from '@/components/hooks/useAddress';
 import { InputProps } from '@/model/interface/shareInput';
 
