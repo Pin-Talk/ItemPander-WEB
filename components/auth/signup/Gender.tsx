@@ -1,18 +1,39 @@
-import { InputProps } from '@/model/interface/shareInput';
+import { UseFormRegisterReturn, UseFormWatch } from 'react-hook-form';
+import { SignUpFormData } from './types';
 
-interface Props extends InputProps {
-  title?: string;
+interface Props {
+  htmlFor?: string;
+  register: UseFormRegisterReturn;
+  watch: UseFormWatch<SignUpFormData>;
 }
 
-const Gender = ({ htmlFor, title }: Props) => {
+const Gender = ({ htmlFor, register, watch }: Props) => {
+  const checkedMan = watch('gender') === 'M';
+  const checkedWomen = watch('gender') === 'W';
   return (
-    <div className='flex flex-col justify-center w-10 pr-1'>
-      <input
-        className='border-2 border-gray-100 w-5 h-5 rounded-full'
-        type='button'
-        id={htmlFor}
-      />
-      <span className='text-sm text-gray-300'>{title}</span>
+    <div className='flex space-x-4'>
+      <div className='flex flex-col justify-center items-center space-y-1'>
+        <input
+          {...register}
+          className='border-2 border-gray-100 w-5 h-5 rounded-full'
+          type='radio'
+          id={htmlFor}
+          value='M'
+          checked={checkedMan}
+        />
+        <span className='inline-block text-sm text-gray-300'>남</span>
+      </div>
+      <div className='flex flex-col justify-center items-center space-y-1'>
+        <input
+          {...register}
+          className='border-2 border-gray-100 w-5 h-5 rounded-full'
+          type='radio'
+          id={htmlFor}
+          value='W'
+          checked={checkedWomen}
+        />
+        <span className='inline-block text-sm text-gray-300'>여</span>
+      </div>
     </div>
   );
 };

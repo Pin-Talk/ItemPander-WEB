@@ -1,10 +1,11 @@
-import { InputProps } from '@/model/interface/shareInput';
+import { InputProps } from './types';
 
 const NameInput = ({
   htmlFor,
   label,
   type = 'text',
   placeholder,
+  register,
 }: InputProps) => {
   return (
     <div className='flex items-center'>
@@ -12,6 +13,7 @@ const NameInput = ({
         {label}
       </label>
       <input
+        {...register}
         className='p-1 px-2 lg:p-2 rounded-md bg-transparent border-2 border-gray-200 w-80'
         type='text'
         id={htmlFor}

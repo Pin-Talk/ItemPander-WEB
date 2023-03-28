@@ -1,25 +1,52 @@
 'use client';
 
 import useAddress from '@/components/hooks/useAddress';
-import { InputProps } from '@/model/interface/shareInput';
+import { useEffect } from 'react';
+import {
+  UseFormRegister,
+  UseFormSetValue,
+  UseFormWatch,
+} from 'react-hook-form';
+import { SignUpFormData } from './types';
 
-const AddressInput = ({ register, label }: InputProps) => {
+interface Props {
+  register: UseFormRegister<SignUpFormData>;
+  label: string;
+  watch: UseFormWatch<SignUpFormData>;
+  setValue: UseFormSetValue<SignUpFormData>;
+}
+
+const AddressInput = ({ register, label, watch, setValue }: Props) => {
   const { address, handleAddressPop } = useAddress();
-  console.log(address);
+
+  useEffect(() => {
+    if (address) {
+      setValue('address1', address);
+    }
+  }, [address]);
+
   return (
     <div>
       <label className='inline-block mb-2 font-bold' htmlFor='address'>
         {label}
       </label>
       <div className='flex flex-col space-y-2'>
-        <input
-          onClick={handleAddressPop}
-          className='caret-white p-1 px-2 lg:p-2 rounded-md bg-transparent border-2 border-gray-200 w-50 cursor-pointer placeholder:text-gray-300'
-          type='text'
-          placeholder='통합 주소'
-          value={address}
-        />
+        <div className='w-full relative'>
+          <input
+            {...register('address1', {
+              required: '주소를 입력해주세요.',
+            })}
+            placeholder='통합주소'
+            className='w-full caret-transparent p-1 px-2 lg:p-2 rounded-md bg-transparent border-2 border-gray-200 w-50  placeholder:text-gray-300 '
+          />
+          <div
+            onClick={handleAddressPop}
+            className='absolute w-full h-full top-0 bg-transparent cursor-pointer'
+          />
+        </div>
+
         <textarea
+          {...register('address2')}
           placeholder='상세주소'
           className='outline-none p-1 px-2 lg:p-2 rounded-md bg-transparent border-2 border-gray-200 w-50 placeholder:text-gray-300'
         />

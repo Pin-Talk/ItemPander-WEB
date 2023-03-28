@@ -1,7 +1,15 @@
-import { InputProps } from '@/model/interface/shareInput';
+import { UseFormRegister } from 'react-hook-form';
 import { AiOutlineDown } from 'react-icons/ai';
+import { InputProps, SignUpFormData } from './types';
 
-const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
+interface Props {
+  register: UseFormRegister<SignUpFormData>;
+  htmlFor?: string;
+  label?: string;
+  placeholder?: string;
+}
+
+const EmailInput = ({ htmlFor, label, placeholder, register }: Props) => {
   return (
     <div>
       <label className='inline-block mb-2 font-bold' htmlFor={htmlFor}>
@@ -10,13 +18,21 @@ const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
       <div className='flex'>
         <div className='flex items-center space-x-3'>
           <input
+            {...register('email1', {
+              required: '이메일을 입력해주세요.',
+            })}
             className='p-1 px-2 lg:p-2 rounded-md bg-transparent border-2 border-gray-200 w-50'
             type='text'
             placeholder={placeholder}
           />
           <span>@</span>
           <div className='relative rounded-md border-2 border-gray-200'>
-            <select className='py-1 pl-2 lg:p-2 bg-transparent border-gray-200 appearance-none outline-none w-28 cursor-pointer'>
+            <select
+              {...register('email2', {
+                required: '선택해주세요',
+              })}
+              className='py-1 pl-2 lg:p-2 bg-transparent border-gray-200 appearance-none outline-none w-28 cursor-pointer'
+            >
               <option value=''>이메일</option>
               <option value='naver.com'>naver.com</option>
               <option value='daum.com'>daum.com</option>
