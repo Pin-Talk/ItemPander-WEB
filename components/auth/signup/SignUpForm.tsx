@@ -97,7 +97,12 @@ const SignUpForm = () => {
           </div>
         </div>
 
-        <EmailInput register={register} htmlFor='email' label='이메일' />
+        <EmailInput
+          register={register}
+          htmlFor='email'
+          label='이메일'
+          placeholder='이메일'
+        />
 
         <AddressInput
           register={register}

@@ -1,6 +1,7 @@
 import { UseFormRegister } from 'react-hook-form';
 import { AiOutlineDown } from 'react-icons/ai';
-import { InputProps, SignUpFormData } from './types';
+import ShareInput from './ShareInput';
+import { SignUpFormData } from './types';
 
 interface Props {
   register: UseFormRegister<SignUpFormData>;
@@ -17,11 +18,10 @@ const EmailInput = ({ htmlFor, label, placeholder, register }: Props) => {
       </label>
       <div className='flex'>
         <div className='flex items-center space-x-3'>
-          <input
+          <ShareInput
             {...register('email1', {
               required: '이메일을 입력해주세요.',
             })}
-            className='p-1 px-2 lg:p-2 rounded-md bg-transparent border-2 border-gray-200 w-50'
             type='text'
             placeholder={placeholder}
           />

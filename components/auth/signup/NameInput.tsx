@@ -1,9 +1,10 @@
+import ShareInput from './ShareInput';
 import { InputProps } from './types';
 
 const NameInput = ({
   htmlFor,
   label,
-  type = 'text',
+  type,
   placeholder,
   register,
 }: InputProps) => {
@@ -12,12 +13,12 @@ const NameInput = ({
       <label className='font-bold mr-6' htmlFor={htmlFor}>
         {label}
       </label>
-      <input
-        {...register}
-        className='p-1 px-2 lg:p-2 rounded-md bg-transparent border-2 border-gray-200 w-80'
-        type='text'
-        id={htmlFor}
+      <ShareInput
+        register={register}
+        type={type}
+        htmlFor={htmlFor}
         placeholder={placeholder}
+        width='80px'
       />
     </div>
   );

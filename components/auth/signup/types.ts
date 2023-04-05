@@ -24,4 +24,6 @@ export interface InputProps {
   htmlFor?: string;
   register?: UseFormRegisterReturn;
   maxLength?: number;
+  width?: string;
+  className?: string;
 }

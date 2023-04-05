@@ -7,6 +7,7 @@ import {
   UseFormSetValue,
   UseFormWatch,
 } from 'react-hook-form';
+import ShareInput from './ShareInput';
 import { SignUpFormData } from './types';
 
 interface Props {
@@ -32,12 +33,12 @@ const AddressInput = ({ register, label, watch, setValue }: Props) => {
       </label>
       <div className='flex flex-col space-y-2'>
         <div className='w-full relative'>
-          <input
+          <ShareInput
             {...register('address1', {
               required: '주소를 입력해주세요.',
             })}
-            placeholder='통합주소'
             className='w-full caret-transparent p-1 px-2 lg:p-2 rounded-md bg-transparent border-2 border-gray-200 w-50  placeholder:text-gray-300 '
+            placeholder='통합주소'
           />
           <div
             onClick={handleAddressPop}
