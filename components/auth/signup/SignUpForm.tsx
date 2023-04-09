@@ -4,8 +4,10 @@ import { useForm } from 'react-hook-form';
 import AddressInput from './AddressInput';
 import EmailInput from './EmailInput';
 import Gender from './Gender';
+import IdInput from './IdInput';
 import NameInput from './NameInput';
 import NumberInput from './NumberInput';
+import PasswordInput from './PasswordInput';
 import { SignUpFormData } from './types';
 
 const SignUpForm = () => {
@@ -22,10 +24,10 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className='lg:flex-1 max-w-2xl text-gray-100'>
+    <div className='lg:flex-1 max-w-2xl text-gray-100 overflow-hidden'>
       <form
         onSubmit={handleSubmit(onValidForm)}
-        className='space-y-7 px-6 py-6 rounded-2xl shadow-lg'
+        className='space-y-6 px-6 py-6 rounded-2xl shadow-lg'
       >
         <NameInput
           register={register('name', { required: '이름을 입력해주세요.' })}
@@ -50,7 +52,24 @@ const SignUpForm = () => {
         </div>
 
         <div>
-          <label className='inline-block mb-2 font-bold' htmlFor='phone'>
+          <IdInput
+            placeholder='아이디'
+            htmlFor='id'
+            label='아이디'
+            register={register}
+          />
+        </div>
+
+        <div>
+          <PasswordInput
+            label='비밀번호'
+            placeholder='비밀번호'
+            register={register}
+          />
+        </div>
+
+        <div>
+          <label className='inline-block mb-1 font-bold' htmlFor='phone'>
             휴대폰
           </label>
           <div className='flex items-center space-x-4'>
@@ -75,7 +94,7 @@ const SignUpForm = () => {
         </div>
 
         <div>
-          <label className='inline-block mb-2 font-bold' htmlFor='phone'>
+          <label className='inline-block mb-1 font-bold' htmlFor='phone'>
             주민번호
           </label>
           <div className='flex items-center space-x-4'>

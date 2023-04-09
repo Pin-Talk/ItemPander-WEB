@@ -28,7 +28,7 @@ const AddressInput = ({ register, label, watch, setValue }: Props) => {
 
   return (
     <div>
-      <label className='inline-block mb-2 font-bold' htmlFor='address'>
+      <label className='inline-block mb-1 font-bold' htmlFor='address'>
         {label}
       </label>
       <div className='flex flex-col space-y-2'>

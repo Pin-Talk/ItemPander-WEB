@@ -13,7 +13,7 @@ interface Props {
 const EmailInput = ({ htmlFor, label, placeholder, register }: Props) => {
   return (
     <div>
-      <label className='inline-block mb-2 font-bold' htmlFor={htmlFor}>
+      <label className='inline-block mb-1 font-bold' htmlFor={htmlFor}>
         {label}
       </label>
       <div className='flex'>
@@ -31,7 +31,7 @@ const EmailInput = ({ htmlFor, label, placeholder, register }: Props) => {
               {...register('email2', {
                 required: '선택해주세요',
               })}
-              className='py-1 pl-2 lg:p-2 bg-transparent border-gray-200 appearance-none outline-none w-28 cursor-pointer'
+              className='py-1 pl-2 bg-transparent border-gray-200 appearance-none outline-none w-28 cursor-pointer'
             >
               <option value=''>이메일</option>
               <option value='naver.com'>naver.com</option>

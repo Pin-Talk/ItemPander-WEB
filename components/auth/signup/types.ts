@@ -6,6 +6,8 @@ import {
 
 export interface SignUpFormData {
   name: string;
+  id: string;
+  password: string;
   gender: string;
   phone1: string;
   phone2: string;
