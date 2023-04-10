@@ -1,20 +1,15 @@
-import { UseFormRegister } from 'react-hook-form';
-import ShareInput from './ShareInput';
-import { SignUpFormData } from './types';
+'use client';
 
-interface Props {
-  register: UseFormRegister<SignUpFormData>;
-  htmlFor?: string;
-  label?: string;
-  placeholder?: string;
-}
+import { useFormContext } from 'react-hook-form';
+import ShareInput from './ShareInput';
+import { InputProps } from './types';
 
 export default function PasswordInput({
-  register,
   htmlFor,
   label,
   placeholder,
-}: Props) {
+}: InputProps) {
+  const { register } = useFormContext();
   return (
     <div>
       <label className='font-bold inline-block mb-1' htmlFor={htmlFor}>
@@ -23,7 +18,8 @@ export default function PasswordInput({
       <div>
         <ShareInput
           placeholder={placeholder}
-          {...register('password', { required: '비밀번호를 입력해주세요.' })}
+          type='password'
+          register={register('password')}
         />
       </div>
     </div>

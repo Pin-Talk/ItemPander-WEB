@@ -1,15 +1,23 @@
+import { useFormContext } from 'react-hook-form';
 import ShareInput from './ShareInput';
-import { InputProps } from './types';
+
+interface Props {
+  placeholder?: string;
+  type?: string;
+  maxLength?: number;
+  name: string;
+}
 
 const NumberInput = ({
   placeholder,
   type = 'text',
   maxLength,
-  register,
-}: InputProps) => {
+  name,
+}: Props) => {
+  const { register } = useFormContext();
   return (
     <ShareInput
-      {...register}
+      register={register(name)}
       type={type}
       placeholder={placeholder}
       maxLength={maxLength}

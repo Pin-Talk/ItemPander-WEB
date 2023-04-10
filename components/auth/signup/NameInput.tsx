@@ -1,20 +1,21 @@
+import { useFormContext } from 'react-hook-form';
 import ShareInput from './ShareInput';
 import { InputProps } from './types';
 
 const NameInput = ({
   htmlFor,
   label,
-  type,
+  type = 'text',
   placeholder,
-  register,
 }: InputProps) => {
+  const { register } = useFormContext();
   return (
     <div className='flex items-center'>
       <label className='font-bold mr-6' htmlFor={htmlFor}>
         {label}
       </label>
       <ShareInput
-        register={register}
+        register={register('name')}
         type={type}
         htmlFor={htmlFor}
         placeholder={placeholder}

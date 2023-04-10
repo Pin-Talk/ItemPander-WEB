@@ -1,20 +1,18 @@
-import { UseFormRegisterReturn, UseFormWatch } from 'react-hook-form';
-import { SignUpFormData } from './types';
+import { useFormContext } from 'react-hook-form';
 
 interface Props {
   htmlFor?: string;
-  register: UseFormRegisterReturn;
-  watch: UseFormWatch<SignUpFormData>;
 }
 
-const Gender = ({ htmlFor, register, watch }: Props) => {
+const Gender = ({ htmlFor }: Props) => {
+  const { register, watch } = useFormContext();
   const checkedMan = watch('gender') === 'M';
   const checkedWomen = watch('gender') === 'W';
   return (
     <div className='flex space-x-4'>
       <div className='flex flex-col justify-center items-center space-y-1'>
         <input
-          {...register}
+          {...register('gender')}
           className='border-2 border-gray-100 w-5 h-5 rounded-full'
           type='radio'
           id={htmlFor}
@@ -25,7 +23,7 @@ const Gender = ({ htmlFor, register, watch }: Props) => {
       </div>
       <div className='flex flex-col justify-center items-center space-y-1'>
         <input
-          {...register}
+          {...register('gender')}
           className='border-2 border-gray-100 w-5 h-5 rounded-full'
           type='radio'
           id={htmlFor}
