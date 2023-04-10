@@ -1,5 +1,4 @@
 import { cls } from '@/utils/cls';
-import { forwardRef } from 'react';
 import { InputProps } from './types';
 
 const ShareInput = ({
@@ -21,6 +20,7 @@ const ShareInput = ({
       id={htmlFor}
       placeholder={placeholder}
       maxLength={maxLength}
+      autoComplete={type === 'password' ? 'current-password' : 'on'}
     />
   );
 };

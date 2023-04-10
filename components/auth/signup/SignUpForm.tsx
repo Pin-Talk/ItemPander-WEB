@@ -27,11 +27,9 @@ const SignUpForm = () => {
           <NameInput htmlFor='name' label='이름' placeholder='이름' />
 
           <div className='flex'>
-            <label className='font-bold mr-6' htmlFor='gender '>
-              성별
-            </label>
+            <span className='font-bold mr-6'>성별</span>
             <div className='flex'>
-              <Gender htmlFor='gender' />
+              <Gender />
             </div>
           </div>
 

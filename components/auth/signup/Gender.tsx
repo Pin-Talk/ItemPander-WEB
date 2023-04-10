@@ -1,10 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 
-interface Props {
-  htmlFor?: string;
-}
-
-const Gender = ({ htmlFor }: Props) => {
+const Gender = () => {
   const { register, watch } = useFormContext();
   const checkedMan = watch('gender') === 'M';
   const checkedWomen = watch('gender') === 'W';
@@ -15,22 +11,32 @@ const Gender = ({ htmlFor }: Props) => {
           {...register('gender')}
           className='border-2 border-gray-100 w-5 h-5 rounded-full'
           type='radio'
-          id={htmlFor}
+          id='gender-m'
           value='M'
           checked={checkedMan}
         />
-        <span className='inline-block text-sm text-gray-300'>남</span>
+        <label
+          htmlFor='gender-m'
+          className='inline-block text-sm text-gray-300'
+        >
+          남
+        </label>
       </div>
       <div className='flex flex-col justify-center items-center space-y-1'>
         <input
           {...register('gender')}
           className='border-2 border-gray-100 w-5 h-5 rounded-full'
           type='radio'
-          id={htmlFor}
+          id='gender-w'
           value='W'
           checked={checkedWomen}
         />
-        <span className='inline-block text-sm text-gray-300'>여</span>
+        <label
+          htmlFor='gender-w'
+          className='inline-block text-sm text-gray-300'
+        >
+          여
+        </label>
       </div>
     </div>
   );
