@@ -2,7 +2,7 @@ import useAddress from '@/components/hooks/useAddress';
 import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import ShareInput from './ShareInput';
-import { InputProps } from './types';
+import { InputProps } from '../types';
 
 const AddressInput = ({ label }: InputProps) => {
   const { register, setValue } = useFormContext();

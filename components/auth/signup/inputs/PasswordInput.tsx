@@ -1,8 +1,8 @@
 'use client';
 
 import { useFormContext } from 'react-hook-form';
+import { InputProps } from '../types';
 import ShareInput from './ShareInput';
-import { InputProps } from './types';
 
 export default function PasswordInput({
   htmlFor,

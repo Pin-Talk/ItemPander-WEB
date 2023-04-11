@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form';
+import { InputProps } from '../types';
 import ShareInput from './ShareInput';
-import { InputProps, SignUpFormData } from './types';
 
 export default function IdInput({ htmlFor, label, placeholder }: InputProps) {
   const { register } = useFormContext();
@@ -10,7 +10,7 @@ export default function IdInput({ htmlFor, label, placeholder }: InputProps) {
         {label}
       </label>
       <div className='flex'>
-        <ShareInput register={register('id')} placeholder={placeholder} />
+        <ShareInput register={register('userId')} placeholder={placeholder} />
       </div>
     </div>
   );

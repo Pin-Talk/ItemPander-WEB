@@ -1,7 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 import { AiOutlineDown } from 'react-icons/ai';
+import { InputProps } from '../types';
 import ShareInput from './ShareInput';
-import { InputProps } from './types';
 
 const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
   const { register } = useFormContext();

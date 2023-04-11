@@ -1,14 +1,16 @@
 'use client';
 
 import { useForm, FormProvider } from 'react-hook-form';
-import AddressInput from './AddressInput';
-import EmailInput from './EmailInput';
-import Gender from './Gender';
-import IdInput from './IdInput';
-import NameInput from './NameInput';
-import NumberInput from './NumberInput';
-import PasswordInput from './PasswordInput';
 import { SignUpFormData } from './types';
+
+import AddressInput from './inputs/AddressInput';
+import EmailInput from './inputs/EmailInput';
+import Gender from './inputs/Gender';
+import IdInput from './inputs/IdInput';
+import NameInput from './inputs/NameInput';
+import PasswordInput from './inputs/PasswordInput';
+import PhoneInput from './inputs/PhoneInput';
+import SSNInput from './inputs/SSNInput';
 
 const SignUpForm = () => {
   const SignUpFormMethod = useForm<SignUpFormData>();
@@ -33,37 +35,13 @@ const SignUpForm = () => {
             </div>
           </div>
 
-          <div>
-            <IdInput placeholder='아이디' htmlFor='id' label='아이디' />
-          </div>
+          <IdInput placeholder='아이디' htmlFor='id' label='아이디' />
 
-          <div>
-            <PasswordInput label='비밀번호' placeholder='비밀번호' />
-          </div>
+          <PasswordInput label='비밀번호' placeholder='비밀번호' />
 
-          <div>
-            <label className='inline-block mb-1 font-bold' htmlFor='phone'>
-              휴대폰
-            </label>
-            <div className='flex items-center space-x-4'>
-              <p>010</p>
-              <span>-</span>
-              <NumberInput name='phone1' placeholder='앞 번호' maxLength={4} />
-              <span>-</span>
-              <NumberInput name='phone2' placeholder='뒷 번호' maxLength={4} />
-            </div>
-          </div>
+          <PhoneInput />
 
-          <div>
-            <label className='inline-block mb-1 font-bold' htmlFor='phone'>
-              주민번호
-            </label>
-            <div className='flex items-center space-x-4'>
-              <NumberInput name='ssn1' placeholder='앞 번호' maxLength={6} />
-              <span>-</span>
-              <NumberInput name='ssn2' placeholder='뒷 번호' maxLength={7} />
-            </div>
-          </div>
+          <SSNInput />
 
           <EmailInput htmlFor='email' label='이메일' placeholder='이메일' />
 

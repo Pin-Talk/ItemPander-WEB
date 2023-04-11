@@ -1,5 +1,5 @@
 import { cls } from '@/utils/cls';
-import { InputProps } from './types';
+import { InputProps } from '../types';
 
 const ShareInput = ({
   htmlFor,
