@@ -1,4 +1,6 @@
+import { SelectorContext } from '@/context/selectorContext';
 import { cls } from '@/utils/cls';
+import { useContext } from 'react';
 import { InputProps } from '../types';
 
 const ShareInput = ({
@@ -9,8 +11,10 @@ const ShareInput = ({
   width,
   register,
 }: InputProps) => {
+  const { setIsActive } = useContext(SelectorContext);
   return (
     <input
+      onClick={() => setIsActive(false)}
       {...register}
       className={cls(
         'px-2 py-1 rounded-md bg-transparent border-2 border-gray-200 text-gray-400',

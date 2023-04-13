@@ -1,7 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import ShareInput from './ShareInput';
+import Selector from '@/components/selector/Selector';
+import { phoneNumbers } from '@/data/signupBoard';
 
 const PhoneInput = () => {
+  const [phoneValue, setPhoneValue] = useState('010');
   const { register } = useFormContext();
   return (
     <div>
@@ -9,7 +15,13 @@ const PhoneInput = () => {
         휴대폰
       </label>
       <div className='flex items-center space-x-4'>
-        <p>010</p>
+        <Selector
+          boardItems={phoneNumbers}
+          value={phoneValue}
+          setValue={setPhoneValue}
+          width='w-48'
+          height='h-28'
+        />
         <span>-</span>
         <ShareInput
           placeholder='앞 번호'

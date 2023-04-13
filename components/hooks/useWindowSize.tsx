@@ -9,7 +9,7 @@ const responsiveSize = {
 };
 
 const useWindowSize = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleSize = () => {
