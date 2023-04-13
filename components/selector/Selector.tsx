@@ -12,11 +12,19 @@ interface Props {
   boardItems: string[];
   width?: string;
   height?: string;
+  isActive: boolean;
+  setIsActive: Dispatch<SetStateAction<boolean>>;
 }
 
-const Selector = ({ value, setValue, boardItems, width, height }: Props) => {
-  const { isActive, setIsActive } = useContext(SelectorContext);
-
+const Selector = ({
+  isActive,
+  setIsActive,
+  value,
+  setValue,
+  boardItems,
+  width,
+  height,
+}: Props) => {
   const handleActive = () => {
     setIsActive((prev) => !prev);
   };

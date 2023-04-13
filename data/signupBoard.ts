@@ -10,3 +10,5 @@ export const phoneNumbers = [
   '018',
   '019',
 ];
+
+export const emails = ['naver.com', 'daum.com', 'gmail.com'];

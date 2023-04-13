@@ -1,9 +1,14 @@
+'use Client';
+
+import Selector from '@/components/selector/Selector';
+import { emails } from '@/data/signupBoard';
+import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { AiOutlineDown } from 'react-icons/ai';
 import { InputProps } from '../types';
 import ShareInput from './ShareInput';
 
 const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
+  const [emailValue, setEmailValue] = useState('이메일');
   const { register } = useFormContext();
   return (
     <div>
@@ -18,20 +23,12 @@ const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
             register={register('email1')}
           />
           <span>@</span>
-          <div className='relative rounded-md border-2 border-gray-200'>
-            <select
-              {...register('email2')}
-              className='py-1 pl-2 bg-transparent border-gray-200 appearance-none outline-none w-28 cursor-pointer'
-            >
-              <option value=''>이메일</option>
-              <option value='naver.com'>naver.com</option>
-              <option value='daum.com'>daum.com</option>
-              <option value='gmail.com'>gmail.com</option>
-            </select>
-            <div className='pointer-events-none absolute right-2 bottom-0 top-0 flex items-center justify-center text-gray-400'>
-              <AiOutlineDown />
-            </div>
-          </div>
+          <Selector
+            boardItems={emails}
+            setValue={setEmailValue}
+            value={emailValue}
+            width='w-44'
+          />
         </div>
       </div>
     </div>
