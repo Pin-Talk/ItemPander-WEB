@@ -1,4 +1,7 @@
-import { SelectorContext } from '@/context/selectorContext';
+import {
+  EmailSelectorContext,
+  PhoneSelectorContext,
+} from '@/context/selectorContext';
 import { cls } from '@/utils/cls';
 import { useContext } from 'react';
 import { InputProps } from '../types';
@@ -11,10 +14,16 @@ const ShareInput = ({
   width,
   register,
 }: InputProps) => {
-  const { setIsActive } = useContext(SelectorContext);
+  const { setIsPhoneActive } = useContext(PhoneSelectorContext);
+  const { setIsEmailActive } = useContext(EmailSelectorContext);
+
+  const closeSelectorBoard = () => {
+    setIsPhoneActive(false);
+    setIsEmailActive(false);
+  };
   return (
     <input
-      onClick={() => setIsActive(false)}
+      onClick={closeSelectorBoard}
       {...register}
       className={cls(
         'px-2 py-1 rounded-md bg-transparent border-2 border-gray-200 text-gray-400',

@@ -1,14 +1,17 @@
 'use Client';
 
 import Selector from '@/components/selector/Selector';
+import { EmailSelectorContext } from '@/context/selectorContext';
 import { emails } from '@/data/signupBoard';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { InputProps } from '../types';
 import ShareInput from './ShareInput';
 
 const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
   const [emailValue, setEmailValue] = useState('이메일');
+  const { isEmailActive, setIsEmailActive } = useContext(EmailSelectorContext);
+
   const { register } = useFormContext();
   return (
     <div>
@@ -28,6 +31,8 @@ const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
             setValue={setEmailValue}
             value={emailValue}
             width='w-44'
+            isActive={isEmailActive}
+            setIsActive={setIsEmailActive}
           />
         </div>
       </div>

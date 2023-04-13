@@ -2,24 +2,45 @@
 
 import { createContext, Dispatch, SetStateAction, useState } from 'react';
 
-interface ContextProps {
-  isActive: boolean;
-  setIsActive: Dispatch<SetStateAction<boolean>>;
+interface PhoneContextProps {
+  isPhoneActive: boolean;
+  setIsPhoneActive: Dispatch<SetStateAction<boolean>>;
 }
 
-export const SelectorContext = createContext<ContextProps>({
-  isActive: false,
-  setIsActive: () => {
+interface EmailContextProps {
+  isEmailActive: boolean;
+  setIsEmailActive: Dispatch<SetStateAction<boolean>>;
+}
+
+export const PhoneSelectorContext = createContext<PhoneContextProps>({
+  isPhoneActive: false,
+  setIsPhoneActive: () => {
     return null;
   },
 });
 
-export function SelectorProvider({ children }: { children: React.ReactNode }) {
-  const [isActive, setIsActive] = useState(false);
+export const EmailSelectorContext = createContext<EmailContextProps>({
+  isEmailActive: false,
+  setIsEmailActive: () => {
+    return null;
+  },
+});
+
+export function PhoneSelectorProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [isPhoneActive, setIsPhoneActive] = useState(false);
+  const [isEmailActive, setIsEmailActive] = useState(false);
 
   return (
-    <SelectorContext.Provider value={{ isActive, setIsActive }}>
-      {children}
-    </SelectorContext.Provider>
+    <PhoneSelectorContext.Provider value={{ isPhoneActive, setIsPhoneActive }}>
+      <EmailSelectorContext.Provider
+        value={{ isEmailActive, setIsEmailActive }}
+      >
+        {children}
+      </EmailSelectorContext.Provider>
+    </PhoneSelectorContext.Provider>
   );
 }

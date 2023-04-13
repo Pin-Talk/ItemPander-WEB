@@ -11,7 +11,7 @@ import NameInput from './inputs/NameInput';
 import PasswordInput from './inputs/PasswordInput';
 import PhoneInput from './inputs/PhoneInput';
 import SSNInput from './inputs/SSNInput';
-import { SelectorProvider } from '@/context/selectorContext';
+import { PhoneSelectorProvider } from '@/context/selectorContext';
 
 const SignUpForm = () => {
   const SignUpFormMethod = useForm<SignUpFormData>();
@@ -21,7 +21,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <SelectorProvider>
+    <PhoneSelectorProvider>
       <div className='lg:flex-1 max-w-2xl text-gray-100 overflow-hidden'>
         <FormProvider {...SignUpFormMethod}>
           <form
@@ -57,7 +57,7 @@ const SignUpForm = () => {
           </form>
         </FormProvider>
       </div>
-    </SelectorProvider>
+    </PhoneSelectorProvider>
   );
 };
 export default SignUpForm;

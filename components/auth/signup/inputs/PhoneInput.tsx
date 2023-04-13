@@ -1,13 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import ShareInput from './ShareInput';
 import Selector from '@/components/selector/Selector';
 import { phoneNumbers } from '@/data/signupBoard';
+import { PhoneSelectorContext } from '@/context/selectorContext';
 
 const PhoneInput = () => {
   const [phoneValue, setPhoneValue] = useState('010');
+  const { isPhoneActive, setIsPhoneActive } = useContext(PhoneSelectorContext);
   const { register } = useFormContext();
   return (
     <div>
@@ -21,6 +23,8 @@ const PhoneInput = () => {
           setValue={setPhoneValue}
           width='w-48'
           height='h-28'
+          isActive={isPhoneActive}
+          setIsActive={setIsPhoneActive}
         />
         <span>-</span>
         <ShareInput

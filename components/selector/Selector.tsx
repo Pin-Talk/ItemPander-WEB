@@ -1,7 +1,5 @@
 'use client';
 
-import { SelectorContext } from '@/context/selectorContext';
-
 import { cls } from '@/utils/cls';
 import { Dispatch, SetStateAction, useContext, useState } from 'react';
 import { MdKeyboardArrowDown } from 'react-icons/md';
