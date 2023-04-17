@@ -1,4 +1,4 @@
-export default class ValidateForm {
+class ValidateForm {
   invalidNumberCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.notBlank(e);
     const regex = /[a-z|A-Z|ㄱ-ㅎ|가-힣]/g;
@@ -8,9 +8,9 @@ export default class ValidateForm {
     }
   };
 
-  validEnglish = (e: React.ChangeEvent<HTMLInputElement>) => {
+  validEnglishWithNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.notBlank(e);
-    const regex = /[a-zA-Z0-9]+/g;
+    const regex = /^[a-zA-Z0-9]+$/;
     const value = e.target.value;
     if (!regex.test(value)) {
       return '영문과 숫자만 가능합니다.';
@@ -31,3 +31,5 @@ export default class ValidateForm {
     return (e.target.value = e.target.value.replace(checkBlank, ''));
   };
 }
+
+export const validateForm = new ValidateForm();

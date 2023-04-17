@@ -8,7 +8,9 @@ const Gender = () => {
     <div className='flex space-x-4'>
       <div className='flex flex-col justify-center items-center space-y-1'>
         <input
-          {...register('gender')}
+          {...register('gender', {
+            required: '성별을 선택해주세요.',
+          })}
           className='border-2 border-gray-100 w-5 h-5 rounded-full'
           type='radio'
           id='gender-m'
@@ -24,7 +26,9 @@ const Gender = () => {
       </div>
       <div className='flex flex-col justify-center items-center space-y-1'>
         <input
-          {...register('gender')}
+          {...register('gender', {
+            required: '성별을 선택해주세요.',
+          })}
           className='border-2 border-gray-100 w-5 h-5 rounded-full'
           type='radio'
           id='gender-w'

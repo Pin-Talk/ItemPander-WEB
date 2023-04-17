@@ -35,11 +35,11 @@ const PhoneInput = () => {
         <ShareInput
           placeholder='앞 번호'
           maxLength={4}
-          register={register('phone2')}
+          register={register('phone2', { required: '앞 번호를 입력해주세요.' })}
         />
         <span>-</span>
         <ShareInput
-          register={register('phone3')}
+          register={register('phone3', { required: '뒷 번호를 입력해주세요.' })}
           placeholder='뒷 번호'
           maxLength={4}
         />

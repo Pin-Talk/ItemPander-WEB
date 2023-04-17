@@ -10,13 +10,17 @@ const SSNInput = () => {
       </label>
       <div className='flex items-center space-x-4'>
         <ShareInput
-          register={register('ssn1')}
+          register={register('ssn1', {
+            required: '앞 번호를 입력해주세요.',
+          })}
           placeholder='앞 번호'
           maxLength={6}
         />
         <span>-</span>
         <ShareInput
-          register={register('ssn2')}
+          register={register('ssn2', {
+            required: '뒷 번호를 입력해주세요.',
+          })}
           placeholder='뒷 번호'
           maxLength={7}
         />

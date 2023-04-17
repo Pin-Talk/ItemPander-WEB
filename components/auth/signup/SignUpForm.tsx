@@ -6,7 +6,7 @@ import { SignUpFormData } from './types';
 import AddressInput from './inputs/AddressInput';
 import EmailInput from './inputs/EmailInput';
 import Gender from './inputs/Gender';
-import IdInput from './inputs/IdInput';
+import UserIdInput from './inputs/UserIdInput';
 import NameInput from './inputs/NameInput';
 import PasswordInput from './inputs/PasswordInput';
 import PhoneInput from './inputs/PhoneInput';
@@ -19,6 +19,8 @@ const SignUpForm = () => {
   const onValidForm = (data: SignUpFormData) => {
     console.log(data);
   };
+
+  console.log('error', SignUpFormMethod.formState.errors);
 
   return (
     <PhoneSelectorProvider>
@@ -37,7 +39,7 @@ const SignUpForm = () => {
               </div>
             </div>
 
-            <IdInput placeholder='아이디' htmlFor='id' label='아이디' />
+            <UserIdInput placeholder='아이디' htmlFor='id' label='아이디' />
 
             <PasswordInput label='비밀번호' placeholder='비밀번호' />
 
