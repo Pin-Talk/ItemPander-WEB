@@ -1,6 +1,6 @@
 'use client';
 
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import ShareInput from './ShareInput';
 import Selector from '@/components/selector/Selector';
@@ -10,7 +10,12 @@ import { PhoneSelectorContext } from '@/context/selectorContext';
 const PhoneInput = () => {
   const [phoneValue, setPhoneValue] = useState('010');
   const { isPhoneActive, setIsPhoneActive } = useContext(PhoneSelectorContext);
-  const { register } = useFormContext();
+  const { register, setValue } = useFormContext();
+
+  useEffect(() => {
+    setValue('phone1', phoneValue);
+  }, [setValue, phoneValue]);
+
   return (
     <div>
       <label className='inline-block mb-1 font-bold' htmlFor='phone'>
@@ -30,11 +35,11 @@ const PhoneInput = () => {
         <ShareInput
           placeholder='앞 번호'
           maxLength={4}
-          register={register('phone1')}
+          register={register('phone2')}
         />
         <span>-</span>
         <ShareInput
-          register={register('phone2')}
+          register={register('phone3')}
           placeholder='뒷 번호'
           maxLength={4}
         />
