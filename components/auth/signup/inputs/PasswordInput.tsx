@@ -3,6 +3,7 @@
 import { validateForm } from '@/utils/formValidation';
 import { ChangeEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
+import ErrorMessage from '../../ErrorMessage';
 import { InputProps } from '../types';
 import ShareInput from './ShareInput';
 
@@ -11,12 +12,20 @@ export default function PasswordInput({
   label,
   placeholder,
 }: InputProps) {
-  const { register, setError } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  const passwordErrorMessage = errors.password?.message;
   return (
     <div>
-      <label className='font-bold inline-block mb-1' htmlFor={htmlFor}>
-        {label}
-      </label>
+      <div className='mb-1 flex items-center space-x-4'>
+        <label className='inline-block font-bold'>{label}</label>
+        {passwordErrorMessage && (
+          <ErrorMessage message={passwordErrorMessage as string} />
+        )}
+      </div>
       <div>
         <ShareInput
           maxLength={18}
@@ -24,6 +33,10 @@ export default function PasswordInput({
           type='password'
           register={register('password', {
             required: '비밀번호를 입력해주세요.',
+            minLength: {
+              value: 8,
+              message: '8자리 이상 입력해주세요.',
+            },
             onChange: (e: ChangeEvent<HTMLInputElement>) =>
               validateForm.notBlank(e),
             validate: (value: string) => {

@@ -8,6 +8,11 @@ class ValidateForm {
     }
   };
 
+  validNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.notBlank(e);
+    return (e.target.value = e.target.value.replace(/\D/g, ''));
+  };
+
   validEnglishWithNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.notBlank(e);
     const regex = /^[a-zA-Z0-9]+$/;

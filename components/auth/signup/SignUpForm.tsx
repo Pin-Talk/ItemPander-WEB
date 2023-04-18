@@ -12,30 +12,35 @@ import PasswordInput from './inputs/PasswordInput';
 import PhoneInput from './inputs/PhoneInput';
 import SSNInput from './inputs/SSNInput';
 import { PhoneSelectorProvider } from '@/context/selectorContext';
+import ErrorMessage from '../ErrorMessage';
 
 const SignUpForm = () => {
-  const SignUpFormMethod = useForm<SignUpFormData>();
+  const signUpFormMethod = useForm<SignUpFormData>();
 
   const onValidForm = (data: SignUpFormData) => {
     console.log(data);
   };
 
-  console.log('error', SignUpFormMethod.formState.errors);
+  const { errors } = signUpFormMethod.formState;
+  const genderErrorMessage = errors.gender?.message;
 
   return (
     <PhoneSelectorProvider>
       <div className='lg:flex-1 max-w-2xl text-gray-100 overflow-hidden'>
-        <FormProvider {...SignUpFormMethod}>
+        <FormProvider {...signUpFormMethod}>
           <form
-            onSubmit={SignUpFormMethod.handleSubmit(onValidForm)}
+            onSubmit={signUpFormMethod.handleSubmit(onValidForm)}
             className='space-y-6 px-6 py-6 rounded-2xl shadow-lg'
           >
             <NameInput htmlFor='name' label='이름' placeholder='이름' />
 
             <div className='flex'>
               <span className='font-bold mr-6'>성별</span>
-              <div className='flex'>
+              <div className='flex space-x-4'>
                 <Gender />
+                {genderErrorMessage && (
+                  <ErrorMessage message={genderErrorMessage} />
+                )}
               </div>
             </div>
 
