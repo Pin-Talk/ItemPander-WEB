@@ -17,6 +17,7 @@ export interface SignUpFormData {
   address2: string;
   email1: string;
   email2: string;
+  privacyYn: 'Y' | 'N';
 }
 
 export interface InputProps {

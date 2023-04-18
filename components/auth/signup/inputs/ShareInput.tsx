@@ -26,7 +26,7 @@ const ShareInput = ({
       onClick={closeSelectorBoard}
       {...register}
       className={cls(
-        'px-2 py-1 rounded-md bg-transparent border-2 border-gray-200 text-gray-400',
+        'px-2 py-[2px] rounded-md bg-transparent border-2 border-gray-200 text-gray-400',
         width ? width : 'w-full'
       )}
       type={type}

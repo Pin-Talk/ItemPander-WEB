@@ -22,12 +22,15 @@ class ValidateForm {
     }
   };
 
-  validSpecialString = (e: React.ChangeEvent<HTMLInputElement>) => {
+  validSpecialStringWithLength = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.notBlank(e);
     const regex = /[ `~!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/g;
     const value = e.target.value;
     if (!regex.test(value)) {
       return '특수문자를 포함해야 합니다.';
+    }
+    if (e.target.value.length < 8) {
+      return '8자리 이상 입력해주세요.';
     }
   };
 

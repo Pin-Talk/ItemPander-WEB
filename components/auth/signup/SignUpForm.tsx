@@ -13,6 +13,8 @@ import PhoneInput from './inputs/PhoneInput';
 import SSNInput from './inputs/SSNInput';
 import { PhoneSelectorProvider } from '@/context/selectorContext';
 import ErrorMessage from '../ErrorMessage';
+import { cls } from '@/utils/cls';
+import Privacy from './inputs/Privacy';
 
 const SignUpForm = () => {
   const signUpFormMethod = useForm<SignUpFormData>();
@@ -22,7 +24,9 @@ const SignUpForm = () => {
   };
 
   const { errors } = signUpFormMethod.formState;
+
   const genderErrorMessage = errors.gender?.message;
+  const privacyErrorMessage = errors.privacyYn?.message;
 
   return (
     <PhoneSelectorProvider>
@@ -30,7 +34,7 @@ const SignUpForm = () => {
         <FormProvider {...signUpFormMethod}>
           <form
             onSubmit={signUpFormMethod.handleSubmit(onValidForm)}
-            className='space-y-6 px-6 py-6 rounded-2xl shadow-lg'
+            className='space-y-5 px-6 py-6 rounded-2xl shadow-lg'
           >
             <NameInput htmlFor='name' label='이름' placeholder='이름' />
 
@@ -56,8 +60,18 @@ const SignUpForm = () => {
 
             <AddressInput label='사는곳' />
 
+            <div className='flex'>
+              <span className='font-bold mr-6'>개인정보</span>
+              <div className='flex space-x-4'>
+                <Privacy />
+                {privacyErrorMessage && (
+                  <ErrorMessage message={privacyErrorMessage} />
+                )}
+              </div>
+            </div>
+
             <div className='flex justify-center items-center w-full'>
-              <button className='p-3 px-10 rounded-lg text-white bg-blue-300 hover:bg-blue-500 font-bold transition-all w-full'>
+              <button className='p-3 px-10 rounded-lg text-white  font-bold transition-all w-full bg-sky-400 opacity-60 hover:bg-sky-500 hover:opacity-100'>
                 회원가입
               </button>
             </div>

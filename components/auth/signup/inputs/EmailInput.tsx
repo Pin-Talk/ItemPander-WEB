@@ -28,12 +28,11 @@ const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
   }, [setValue, emailValue]);
 
   useEffect(() => {
-    if (watch('email2') === '이메일') {
-      setError('email2', { message: '이메일 주소를 입력해주세요.' });
-    } else {
+    const isEmailValueDefault = emailValue === '이메일';
+    if (!isEmailValueDefault) {
       clearErrors('email2');
     }
-  }, [emailValue]);
+  }, [clearErrors, emailValue]);
 
   const emailErrorMessage = errors.email2?.message;
 
@@ -54,8 +53,14 @@ const EmailInput = ({ htmlFor, label, placeholder }: InputProps) => {
             placeholder={placeholder}
             maxLength={16}
             register={register('email1', {
+              required: '이메일을 입력해주세요.',
               onChange: (e: ChangeEvent<HTMLInputElement>) => {
                 const message = validateForm.validEnglishWithNumber(e);
+                if (watch('email2') === '이메일') {
+                  return setError('email2', {
+                    message: '이메일 주소를 입력해주세요.',
+                  });
+                }
                 if (message) {
                   return setError('email1', { message });
                 }
