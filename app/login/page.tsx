@@ -11,7 +11,7 @@ const LoginPage: NextPage = () => {
   const { desk, currentSize } = useWindowSize();
   return (
     <section className='flex justify-center items-center bg-gray-50'>
-      {currentSize >= desk && (
+      {currentSize && currentSize >= desk && (
         <div className='xl:flex-1 w-full min-h-screen relative'>
           <Image
             src='/images/login/login.jpg'
