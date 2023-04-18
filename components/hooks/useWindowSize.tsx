@@ -9,17 +9,18 @@ const responsiveSize = {
 };
 
 const useWindowSize = () => {
-  const [value, setValue] = useState(window.innerWidth);
+  const [value, setValue] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : undefined
+  );
 
   useEffect(() => {
-    const handleSize = () => {
-      setValue(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleSize);
-    return () => {
-      window.removeEventListener('resize', handleSize);
-    };
+    const handleSize = () => setValue(window.innerWidth);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleSize);
+      return () => {
+        window.removeEventListener('resize', handleSize);
+      };
+    }
   }, []);
 
   useEffect(() => {

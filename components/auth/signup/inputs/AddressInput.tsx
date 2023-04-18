@@ -1,3 +1,5 @@
+'use client';
+
 import useAddress from '@/components/hooks/useAddress';
 import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';

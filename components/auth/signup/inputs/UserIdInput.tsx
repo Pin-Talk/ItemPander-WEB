@@ -1,3 +1,5 @@
+'use client';
+
 import { validateForm } from '@/utils/formValidation';
 import { ChangeEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
