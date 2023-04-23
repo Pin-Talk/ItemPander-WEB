@@ -18,6 +18,7 @@ const LoginPage: NextPage = () => {
             alt='login'
             fill
             className='absolute object-cover'
+            priority
           />
         </div>
       )}

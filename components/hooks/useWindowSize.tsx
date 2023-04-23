@@ -9,9 +9,7 @@ const responsiveSize = {
 };
 
 const useWindowSize = () => {
-  const [value, setValue] = useState(
-    typeof window !== 'undefined' ? window.innerWidth : undefined
-  );
+  const [value, setValue] = useState(0);
 
   useEffect(() => {
     const handleSize = () => setValue(window.innerWidth);
@@ -24,7 +22,9 @@ const useWindowSize = () => {
   }, []);
 
   useEffect(() => {
-    setValue(window.innerWidth);
+    if (typeof window !== 'undefined') {
+      setValue(window.innerWidth);
+    }
   }, []);
 
   return {
